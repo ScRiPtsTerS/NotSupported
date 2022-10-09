@@ -2,6 +2,48 @@ local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/ScRiP
 local Notification = loadstring(game:HttpGet("https://raw.githubusercontent.com/Jxereas/UI-Libraries/main/notification_gui_library.lua", true))()
 local Window = Library.CreateLib("GigaHub", getgenv().THEMES)
 
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-- Functions
+-- Supported Games Tab
+function SupportedGames()
+    local SupportedGames = Window:NewTab("Supported Games!!!")
+    local MainSupportedGames = SupportedGames:NewSection("Games")
+    MainSupportedGames:NewLabel("BedWars")
+    MainSupportedGames:NewLabel("FlagWars")
+    MainSupportedGames:NewLabel("Rebirth Champions X")
+    MainSupportedGames:NewLabel("Chinese freebie game")
+    MainSupportedGames:NewLabel("Tapping Legends X")
+    MainSupportedGames:NewLabel("Tai Verdes Concert")
+    MainSupportedGames:NewLabel("Islands of Move")
+    MainSupportedGames:NewLabel("Mansion of Wonder")
+    MainSupportedGames:NewLabel("24kGoldn Concert")
+    MainSupportedGames:NewLabel("Race Clicker")
+    MainSupportedGames:NewLabel("Big Paintball")
+    MainSupportedGames:NewLabel("Arsenal")
+    MainSupportedGames:NewLabel("type /console")
+end
+
+-- Toggle Gui
+function ToggleGui()
+    -- Toggle Gui Window
+    local Toggle = Window:NewTab("Toggle UI")
+    local MainToggle = Toggle:NewSection("You can change settings")
+    -- Toggle Gui Button
+    MainToggle:NewKeybind("Toggle UI", "Self Explains", Enum.KeyCode.K, function()
+        Library:ToggleUI()
+    end)
+end
+
+-- Discord Button
+function JoinDiscord()
+    local Discord = Window:NewTab("Discord")
+    local MainDiscord = Discord:NewSection("Discord link")
+    MainDiscord:NewButton("Copy link", "copys Dicord server link", function ()
+        Notification.new("info", "Discord", "Dicord server is copied to clipboard!", true, 3)
+        setclipboard("https://discord.gg/vNwA3gZP3T")
+    end)
+end
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Notification.new("info", "Game: Bedwars loader", "Enjoy Hacking "..getgenv().Emoji, true, 3)
 local BedwarsManual = Window:NewTab("Bedwars loader?")
 local MainBedWarsManual = BedwarsManual:NewSection("Are you you in a Bedwars match")
