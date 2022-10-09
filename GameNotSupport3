@@ -63,7 +63,10 @@ MainBedWarsManual:NewButton("Yes", "loads the bedwars script", function()
                 MainBedWars:NewButton("Future", "loads Future Script", function()
                     loadstring(game:HttpGet('https://raw.githubusercontent.com/joeengo/Future/main/loadstring.lua', true))()
                 end)
-
+                
+                ToggleGui()
+                JoinDiscord()
+                SupportedGames()
                 
                 cooldown = 999999
                 cooldown2 = 999999
