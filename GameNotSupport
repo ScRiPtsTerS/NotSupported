@@ -1,0 +1,59 @@
+    MainBedWarsManual:NewButton("Yes", "loads the bedwars script", function()
+    wait(cooldown)
+    cooldown = 0.5
+    local Bedwars = Window:NewTab("Bedwars")
+    local MainBedWars = Bedwars:NewSection("Main")
+                MainBedWars:NewButton("Vape Private", "loads Sape Script", function()
+                    loadstring(game:HttpGet("https://raw.githubusercontent.com/vodxn/sape/main/Initiate.lua"))()
+                end)
+        
+                MainBedWars:NewButton("Rektsky", "loads Rektsky Script", function()
+                    loadstring(game:HttpGet("https://raw.githubusercontent.com/8pmX8/rektsky4roblox/main/mainscript.lua"))()
+                end)
+        
+                MainBedWars:NewButton("Future", "loads Future Script", function()
+                    loadstring(game:HttpGet('https://raw.githubusercontent.com/joeengo/Future/main/loadstring.lua', true))()
+                end)
+
+                
+                cooldown = 999999
+                cooldown2 = 999999
+            end)
+
+    MainBedWarsManual:NewButton("No", "game is not Supported", function()
+        wait(cooldown2)
+        cooldown2 = 0.5
+            --Main
+local Main = Window:NewTab("Player")
+local MainSection = Main:NewSection("Main")
+
+--Speed Slider
+MainSection:NewSlider("WalkSpeed", "Makes you Walk/Run higher", 500, 0, function(s) -- 500 (MaxValue) | 0 (MinValue)
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+end)
+
+--Jump Slider
+MainSection:NewSlider("JumpPower", "Makes you jump higher", 500, 0, function(s) -- 500 (MaxValue) | 0 (MinValue)
+    game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
+end)
+
+--Infinte Jump Button
+MainSection:NewButton("infinte Jump", "makes you jump infinite times", function()
+    loadstring(game:HttpGet('https://pastebin.com/raw/JZYc0v9r'))()
+end)
+
+--Fake Kick
+MainSection:NewButton("Fake Kick/Ban", "Makes you get Fake Kicked", function()
+    game.Players.LocalPlayer:Kick(getgenv().KickMessage)
+end)
+MainSection:NewTextBox("Edit KickMessage", "Don't put too many words", function(txt)
+    getgenv().KickMessage = txt
+end)
+
+ToggleGui()
+JoinDiscord()
+SupportedGames()
+
+        cooldown2 = 999999
+        cooldown = 999999
+    end)
