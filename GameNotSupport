@@ -1,4 +1,11 @@
-    MainBedWarsManual:NewButton("Yes", "loads the bedwars script", function()
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/ScRiPtsTerS/KavoTest/main/kavotest8"))()
+local Notification = loadstring(game:HttpGet("https://raw.githubusercontent.com/Jxereas/UI-Libraries/main/notification_gui_library.lua", true))()
+local Window = Library.CreateLib("GigaHub", getgenv().THEMES)
+
+Notification.new("info", "Game: Bedwars loader", "Enjoy Hacking "..getgenv().Emoji, true, 3)
+local BedwarsManual = Window:NewTab("Bedwars loader?")
+local MainBedWarsManual = BedwarsManual:NewSection("Are you you in a Bedwars match")
+MainBedWarsManual:NewButton("Yes", "loads the bedwars script", function()
     wait(cooldown)
     cooldown = 0.5
     local Bedwars = Window:NewTab("Bedwars")
