@@ -9,11 +9,15 @@ local notifiEmoji = getgenv().Notifi_Emoji -- Notification Emoji
 if getgenv().Notifi_Emoji == nil then -- If they don't put any thing for Notification Emoji
     notifiEmoji = "✅"
 end
-if getgenv().ThemeSelect ~= true or false then -- If they don't put anything for ThemeSelect
-    getgenv().ThemeSelect = true
+if getgenv().ThemeSelect ~= true then -- If they don't put anything for ThemeSelect
+if getgenv().ThemeSelect ~= false then
+getgenv().ThemeSelect = true
+end    
 end
-if getgenv().THEMES == nil and getgenv().ThemeSelect == false then -- if they don't put anything for THEMES
+if getgenv().THEMES == nil then -- if they don't put anything for THEMES
+if getgenv().ThemeSelect == false then
     getgenv().THEMES = "Synapse"
+end    
 end
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/ScRiPtsTerS/KavoTest/main/kavotest8"))()
