@@ -1,6 +1,24 @@
+repeat task.wait() until game:IsLoaded() == true
+---------------------------------------------------------------------------------------------------------------------------------------
+-- Customize Features
+local Emoji = getgenv().Hub_Emoji -- Hub Emoji
+if getgenv().Hub_Emoji == nil then -- if they don't put any thing for Hub Emoji
+    Emoji = "🔥"
+end
+local notifiEmoji = getgenv().Notifi_Emoji -- Notification Emoji
+if getgenv().Notifi_Emoji == nil then -- If they don't put any thing for Notification Emoji
+    notifiEmoji = "✅"
+end
+if getgenv().ThemeSelect ~= true or false then -- If they don't put anything for ThemeSelect
+    getgenv().ThemeSelect = true
+end
+if getgenv().THEMES == nil and getgenv().ThemeSelect == false then -- if they don't put anything for THEMES
+    getgenv().THEMES = "Synapse"
+end
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/ScRiPtsTerS/KavoTest/main/kavotest8"))()
 local Notification = loadstring(game:HttpGet("https://raw.githubusercontent.com/Jxereas/UI-Libraries/main/notification_gui_library.lua", true))()
-local Window = Library.CreateLib("GigaHub", getgenv().THEMES)
+local Window = Library.CreateLib("GigaHub "..Emoji, getgenv().THEMES)
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
 -- Functions
@@ -44,7 +62,7 @@ function JoinDiscord()
     end)
 end
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Notification.new("info", "Game: Bedwars loader", "Enjoy Hacking "..getgenv().Emoji, true, 3)
+Notification.new("info", "Game: Bedwars loader", "Enjoy Hacking "..notifiEmoji, true, 3)
 local BedwarsManual = Window:NewTab("Bedwars loader?")
 local MainBedWarsManual = BedwarsManual:NewSection("Are you you in a Bedwars match")
 MainBedWarsManual:NewButton("Yes", "loads the bedwars script", function()
