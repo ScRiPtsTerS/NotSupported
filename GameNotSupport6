@@ -19,6 +19,13 @@ if getgenv().ThemeSelect == false then
     getgenv().THEMES = "Synapse"
 end    
 end
+if getgenv().WaterMark == true then -- GigaHub WaterMark
+    loadstring(game:HttpGet("https://pastebin.com/raw/9Y2S4tWV"))()
+elseif getgenv().WaterMark == nil then
+    loadstring(game:HttpGet("https://pastebin.com/raw/9Y2S4tWV"))()
+elseif getgenv().WaterMark == false then
+    task.wait(0.0000000001)
+end
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/ScRiPtsTerS/KavoTest/main/kavotest8"))()
 local Notification = loadstring(game:HttpGet("https://raw.githubusercontent.com/Jxereas/UI-Libraries/main/notification_gui_library.lua", true))()
@@ -26,7 +33,9 @@ local Window = Library.CreateLib("GigaHub "..Emoji, getgenv().THEMES)
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
 -- Functions
--- Supported Games Tab
+function WordBypass() -- loadstring Bad Word Bypass
+    loadstring(game:HttpGet("https://pst.klgrth.io/paste/kppov/raw"))()
+end
 function SupportedGames()
     local SupportedGames = Window:NewTab("Supported Games!!!")
     local MainSupportedGames = SupportedGames:NewSection("Games")
@@ -34,7 +43,6 @@ function SupportedGames()
     MainSupportedGames:NewLabel("FlagWars")
     MainSupportedGames:NewLabel("Rebirth Champions X")
     MainSupportedGames:NewLabel("Chinese freebie game")
-    MainSupportedGames:NewLabel("Tapping Legends X")
     MainSupportedGames:NewLabel("Tai Verdes Concert")
     MainSupportedGames:NewLabel("Islands of Move")
     MainSupportedGames:NewLabel("Mansion of Wonder")
@@ -44,24 +52,21 @@ function SupportedGames()
     MainSupportedGames:NewLabel("Arsenal")
     MainSupportedGames:NewLabel("type /console")
 end
-
--- Toggle Gui
-function ToggleGui()
+function ToggleGui() -- Toggle Gui
     -- Toggle Gui Window
     local Toggle = Window:NewTab("Toggle UI")
     local MainToggle = Toggle:NewSection("You can change settings")
     -- Toggle Gui Button
     MainToggle:NewKeybind("Toggle UI", "Self Explains", Enum.KeyCode.K, function()
         Library:ToggleUI()
+        Notification.new("info", "Toggled Gui", "You Just Toggled the Gui "..notifiEmoji, true, 3)
     end)
 end
-
--- Discord Button
 function JoinDiscord()
-    local Discord = Window:NewTab("Discord")
+    local Discord = Window:NewTab("Discord") -- Discord Button
     local MainDiscord = Discord:NewSection("Discord link")
     MainDiscord:NewButton("Copy link", "copys Dicord server link", function ()
-        Notification.new("info", "Discord", "Dicord server is copied to clipboard!", true, 3)
+        Notification.new("info", "Discord", "Dicord server is copied to clipboard! "..notifiEmoji, true, 3)
         setclipboard("https://discord.gg/vNwA3gZP3T")
     end)
 end
@@ -71,7 +76,6 @@ local BedwarsManual = Window:NewTab("Bedwars loader?")
 local MainBedWarsManual = BedwarsManual:NewSection("Are you you in a Bedwars match")
 MainBedWarsManual:NewButton("Yes", "loads the bedwars script", function()
     wait(cooldown)
-    cooldown = 0.5
     local Bedwars = Window:NewTab("Bedwars")
     local MainBedWars = Bedwars:NewSection("Main")
                 MainBedWars:NewButton("Vape Private", "loads Sape Script", function()
@@ -96,7 +100,6 @@ MainBedWarsManual:NewButton("Yes", "loads the bedwars script", function()
 
     MainBedWarsManual:NewButton("No", "game is not Supported", function()
         wait(cooldown2)
-        cooldown2 = 0.5
             --Main
 local Main = Window:NewTab("Player")
 local MainSection = Main:NewSection("Main")
@@ -122,6 +125,14 @@ MainSection:NewButton("Fake Kick/Ban", "Makes you get Fake Kicked", function()
 end)
 MainSection:NewTextBox("Edit KickMessage", "Don't put too many words", function(txt)
     getgenv().KickMessage = txt
+end)
+
+MainSection:NewButton("Bad Word Bypass", "bypasses chat filter", function()
+    WordBypass()
+end)
+MainSection:NewTextBox("Force Say", "makes you say something", function(txt)
+    getgenv().ForceMessage = txt
+    game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(getgenv().ForceMessage, "All")
 end)
 
 ToggleGui()
