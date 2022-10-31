@@ -76,6 +76,18 @@ local BedwarsManual = Window:NewTab("Bedwars loader?")
 local MainBedWarsManual = BedwarsManual:NewSection("Are you you in a Bedwars match")
 MainBedWarsManual:NewButton("Yes", "loads the bedwars script", function()
     wait(cooldown)
+local location_table = {MazeExit = Vector3.new(-622.873, -99.3191, 20.5826), ParkourEscape = Vector3.new(690.089, 68.8448, 222.597), Gate = Vector3.new(-398.733, 314.238, 225.316)}
+local TS = game:GetService('TweenService')
+local TI = TweenInfo.new(1,Enum.EasingStyle.Linear)
+local LP = game.Players.LocalPlayer
+function teleport(v)
+  if LP.Character and LP.Character:FindFirstChild('HumanoidRootPart') then
+    local cf = CFrame.new(v)
+    local a = TS:Create(LP.Character.HumanoidRootPart,TI,{CFrame=cf})
+    a:Play()
+    end
+end
+
     local Bedwars = Window:NewTab("Bedwars")
     local MainBedWars = Bedwars:NewSection("Main")
                 MainBedWars:NewButton("Vape Private", "loads Sape Script", function()
@@ -88,6 +100,19 @@ MainBedWarsManual:NewButton("Yes", "loads the bedwars script", function()
         
                 MainBedWars:NewButton("Future", "loads Future Script", function()
                     loadstring(game:HttpGet('https://raw.githubusercontent.com/joeengo/Future/main/loadstring.lua', true))()
+                end)
+                
+                MainBedWars:NewLabel("Crypt Trials")
+                MainBedWars:NewLabel("Vape might be needed for bow aura")
+                
+                MainBedWars:NewButton("Teleport Gate kinda works", "teleports to the gate", function()
+                    teleport(location_table.Gate)
+                end)
+                MainBedWars:NewButton("Teleport MazeExit works", "completes the maze for you", function()
+                    teleport(location_table.MazeExit)
+                end)
+                MainBedWars:NewButton("Teleport Gate 'be close to rope'", "teleports to the rope", function()
+                    teleport(location_table.ParkourEscape)
                 end)
                 
                 ToggleGui()
