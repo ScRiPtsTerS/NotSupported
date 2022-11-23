@@ -1,4 +1,6 @@
 repeat task.wait() until game:IsLoaded() == true
+local exec = tostring(identifyexecutor()) -- identifyexecutor
+local Version = "v15" -- Version
 ---------------------------------------------------------------------------------------------------------------------------------------
 -- Customize Features
 local Emoji = getgenv().Hub_Emoji -- Hub Emoji
@@ -27,9 +29,9 @@ elseif getgenv().WaterMark == false then
     task.wait(0.0000000001)
 end
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
-local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/ScRiPtsTerS/KavoTest/main/kavotest8"))()
+local Library = loadstring(game:HttpGet(getgenv().HttpLink))()
 local Notification = loadstring(game:HttpGet("https://raw.githubusercontent.com/Jxereas/UI-Libraries/main/notification_gui_library.lua", true))()
-local Window = Library.CreateLib("GigaHub "..Emoji, getgenv().THEMES)
+local Window = Library.CreateLib("GigaHub "..Emoji.." - "..Version.." - "..exec, getgenv().THEMES)
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
 -- Functions
